@@ -1,27 +1,29 @@
 ---
-title: "Relatório executivo SENASP"
-author: "Julio Trecenti"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output:
+  word_document:
+    reference_docx: template.docx
+    fig_caption: true
 vignette: >
   %\VignetteIndexEntry{Relatório executivo SENASP}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
--------------------------------------------------------------------------------
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
 
-## Resumo executivo
+# Introdução
 
-O Brasil é o país recorde de homicídios no mundo. Somamos quase 60 mil homicídios dolosos em 2014, em uma taxa de 29,1 homicídios a cada 100 mil habitantes, enquanto a média mundial é de 6,2 (ONU, 2015). Estatísticas sobre o processamento de homicídios são indispensáveis para compreendermos a dimensão do problema e direcionar políticas de prevenção concretas e eficientes. Da mesma forma, conhecer o fluxo de processamento desde o descobrimento do crime até a execução da pena é dado básico para identificar boas práticas e locais que precisem de atenção diferenciada. No entanto, dados sistemáticos sobre esse processamento atualmente não são produzidos por nenhum órgão brasileiro. 
+O Brasil é o país recorde em homicídios no mundo. Somamos quase 60 mil homicídios dolosos em 2014 e temos uma taxa 29,1 homicídios por 100 mil habitantes, 369% maior que a taxa mundial (ONU, 2015). Diante da importância do tema, é imprescindível utilizar dados empíricos para planejar e implementar políticas públicas.
 
-O índice de resolução de homicídios mais utilizado se refere ao porcentual de inquéritos denunciados, indicando cerca de 8% (ENASP, 2012). Ainda que obtida de forma precária, a divulgação da estatística supracitada foi decisiva para a criação da ENASP em fevereiro de 2010. Apesar de já haver entre os gestores e operadores do Sistema de Justiça Criminal e Segurança Pública a sensação de que tal índice era baixo, a divulgação de que este estaria em torno de 8% surpreendeu mesmo os mais pessimistas.
+Investigar o fluxo do processamento de homicídios desde o descobrimento do crime até a execução da pena é uma tarefa necessária para identificar o perfil dos homicídios e as boas e más práticas adotadas. Infelizmente, nenhum órgão brasileiro produz esses dados sistematicamente. A única estatística disponível sobre resolução de homicídios é o porcentual de inquéritos denunciados, com uma taxa nacional de 8% (ENASP, 2012). 
 
-Diante da gravidade, relevância social e urgência do tema, é imprescindível que haja iniciativas de fomento que sejam planejadas com base em dados empíricos e avaliadas continuamente.
+A Estratégia Nacional de Segurança Pública (ENASP) foi criada fevereiro de 2010 para solucionar o problema da coleta e monitoramento de dados e para atingir metas de produtividade consideradas essenciais. As metas envolvem a identificação das causas de subnotificação nos crimes de homicídio, conclusão dos inquéritos e procedimentos investigativos e finalização das ações penais em curso.
 
-O presente estudo se propõe a contribuir nesse sentido de duas formas. Primeiramente, avaliando a implementação e impacto da ENASP, descrevendo dificuldades e conquistas e identificando sugestões para sua evolução, auxiliando na sua evolução em direção a uma maior eficácia e no desenvolvimento de outras políticas públicas voltadas ao tema. Adicionalmente, este estudo se propõe a disseminar e fomentar este tema entre gestores públicos, acadêmicos e sociedade civil por meio de um texto acessível e de uma inovadora técnica de obtenção automática dos dados e desenvolvimento de métodos avançados de análise. A parte quantitativa pode ser utilizada para aprofundar as análises presentes neste trabalho ou replicar a pesquisa para outros contextos.
+Neste trabalho, avaliamos a implementação e o impacto da ENASP, descrevendo suas dificuldades e conquistas. Além disso, utilizamos técnicas para obtenção automática de dados em três Unidades Federativas e estimamos o tempo dos processos de homicídio por fase. Finalizamos com um diagnóstico geral do problema e um cardápio de sugestões para aprimorar o sistema de segurança pública no Brasil.
 
--------------------------------------------------------------------------------
+##### Page Break
 
 ## O processamento de homicídio
 
@@ -43,7 +45,7 @@ O estabelecimento da verdade sobre os fatos tem valor social atendendo os direit
 
 1. A sexta função, ainda com pouco alcance no Brasil, é de caráter restaurativo no reestabelecimento da ordem anterior pela reparação dos danos ou reestabelecimento do tecido social. 
 
--------------------------------------------------------------------------------
+##### Page Break
 
 ### O processo de homicídio
 
@@ -57,7 +59,7 @@ O relatório resultante é distribuído2 e o promotor designado analisa se foram
 
 Em caso de pronúncia o processo vai para julgamento em Plenário ou Júri, onde testemunhas e provas são apresentadas pelas partes, o acusado é ouvido, defesa e acusação debatem e os jurados votam sobre: materialidade, autoria, participação, absolvição, causas de diminuição ou qualificação do crime. Em caso de condenação, a partir desta votação é fundamentada a sentença do juiz de qual a pena a ser cumprida. 
 
--------------------------------------------------------------------------------
+##### Page Break
 
 ### Gargalos
 
@@ -77,8 +79,6 @@ Existem cinco principais gargalos no processamento de homicídio, destacados aba
 
 Ambas as fases, policial e judicial, têm problemas de *qualidade* e *morosidade*. A questão da qualidade chama mais atenção na fase policial por impor um gargalo nos casos que terão acesso à denúncia. Já a morosidade afeta mais o judiciário, prejudicando a capacidade de resolução pela dificuldade em coletar provas e localizar testemunhas e réus.
 
--------------------------------------------------------------------------------
-
 ## A Estratégia Nacional de Justiça e Segurança Pública 
 
 A ENASP foi resultado de uma mobilização conjunta do Ministério da Justiça (MJ), Conselho Nacional de Justiça (CNJ) e Conselho Nacional do Ministério Público (CNMP). Os representantes nacionais destes órgãos promoveram reuniões de trabalho para identificar os pontos do fluxo de processamento dos homicídios que concentravam maiores dificuldades. Identificados estes pontos sensíveis, passaram ao planejamento de ações específicas e, ainda conjuntamente, definiram metas para cada um destes pontos.
@@ -86,6 +86,7 @@ A ENASP foi resultado de uma mobilização conjunta do Ministério da Justiça (
 No primeiro momento foram separados três eixos, dos quais apenas o primeiro é de interesse na presente pesquisa1. As metas deste eixo foram revistas em julho de 2010 e são descritas no Quadro 1.
 
 <!-- quadro -->
+
 
 Não há relatórios ou prestação de contas pública a respeito das Metas 1 e 5. Pela falta de documentação e pelo relato de alguns gestores, podemos concluir que elas acabaram sendo informalmente abandonadas.
 
@@ -97,11 +98,11 @@ Apesar das primeiras metas não terem sido integralmente cumpridas, as metas de 
 - Julgar (em júri) 50% ou mais das ações de crimes dolosos contra a vida iniciadas até 2009 (denúncia recebida) e que se encontravam suspensas no dia 31 de outubro de 2014.
 Iniciar o cumprimento da pena de condenação transitada em julgado em 80% ou mais das ações de crimes dolosos contra a vida, julgadas até 2013 e não iniciadas em março de 2015.
 
-Em setembro de 2016 ainda não havia relatório disponível sobre as metas definidas em 2015. Fomos informados de que a previsão é de publicação ainda em 2016. Enquanto isso, o mecanismo público de acompanhamento chamado “processômetro” (cuja alimentação pode não ser precisa) registra 20% de cumprimento1.
+Em setembro de 2016 ainda não havia relatório disponível sobre as metas definidas em 2015. Fomos informados de que a previsão é de publicação ainda em 2016. Enquanto isso, o mecanismo público de acompanhamento chamado "processômetro" (cuja alimentação pode não ser precisa) registra 20% de cumprimento1.
 
 A partir de 2016, a ENASP passou por uma mudança importante no perfil de suas metas. Inicialmente, houve a tentativa de criá-las para o processamento prioritário de homicídios cometidos por motivos fúteis, utilizando o local de crime como filtro. No entanto, este recorte não se mostrou viável dada a fragilidade e não interoperabilidade das informações constantes nos registros sobre as ocorrências. A temática alternativa escolhida foi o feminicídio tendo como primeiro passo o levantamento de todos os casos de feminicídio e homicídios femininos ocorridos desde março de 2015. A proposta é que todos estes passem por uma revisão para verificar a pertinência de serem convertidos para feminicídios e tenham sua tramitação priorizada. Em paralelo a essa atividade, o CNMP elaborou um banco de dados detalhado sobre processos de violência doméstica, que serão coletados a partir do final de 2016. Alguns gestores da ENASP mencionaram o desejo de incluir nesta nova meta uma frente maior de comunicação social, esclarecimento sobre o crime e estímulo à denúncia da violência de gênero ainda em suas fases iniciais. Apesar da meta estar em avançado estágio de implementação, ainda não foi definido nenhum indicador de resultado nem de esforço.
 
--------------------------------------------------------------------------------
+##### Page Break
 
 ## Resultados
 
@@ -113,11 +114,13 @@ A parte qualitativa traz como resultado inicial um catálogo dos possíveis efei
 knitr::include_graphics("metodologia.png")
 ```
 
+##### Page Break
+
 ### Estudos de caso
 
 A pesquisa sobre a ENASP em seu âmbito federal identificou que a Estratégia teve sua implementação realizada de forma diversa entre as unidades da federação. Somado a isto o fato de que os estados também apresentam contextos diversos em seus sistemas de segurança e justiça, a pesquisa aprofundou a análise sobre a ENASP em três estados de contextos diversos, com vistas a identificar como a Estratégia impactou o processamento de homicídios em sua execução prática e também se resultou em ganhos permanentes para os estados.
 
--------------------------------------------------------------------------------
+##### Page Break
 
 ### Tempos dos processos
 
@@ -135,7 +138,7 @@ a Tabela \@ref(tab:tempos) apresenta todos os tempos estimados de forma resumida
 
 ```{r tempos}
 tab <- head(cars)
-knitr::kable(tab, caption = 'Tempos medianos (em dias) de cada fase dos processos ao longo dos anos. O TJSC não apresenta medidas para TPO, TOD e TDA e o TJAL não apresenta para TOD.')
+pander::pander(tab, caption = 'Tempos medianos (em dias) de cada fase dos processos ao longo dos anos. O TJSC não apresenta medidas para TPO, TOD e TDA e o TJAL não apresenta para TOD.')
 ```
 
 Outro resultado relevante foi a identificação do efeito dos processos digitais. A Figura \@ref(fig:digital) mostra a sobrevivência do TPO para processos físicos e digitais no TJAL. Podemos observar diminuição significativa nos tempos dos processos digitais, que pode estar associada a maior facilidade de trânsito de informações entre policiais, juízes, defesa e promotoria, elemento mencionado por entrevistados, mas também pode ser fruto de alguma característica dos processos eletrônicos, tais como vieses geográficos ou temporais.
@@ -144,21 +147,11 @@ Outro resultado relevante foi a identificação do efeito dos processos digitais
 knitr::include_graphics("digital.png")
 ```
 
+##### Page Break
+
 ### Amostra
 
-A amostra de São Paulo foi obtida a partir de sorteio aleatório de 200 processos de homicídios, dentre todos aqueles distribuídos entre 2009 e 2016. Além dos casos da amostra, identificamos 27 processos integralmente disponíveis em meio digital, que também foram incluídos na amostra.
-
-Apesar de a amostra incluir 227 processos de homicídio, foi possível analisar apenas 149 deles. Os demais estavam sob vista de alguma das partes ou não foram localizados pelos servidores do Judiciário. Os processos foram distribuídos entre 2009 e 2016, sendo 81% deles até 2014 e apenas 2 dos casos, em 2016.
-
-Foi corroborada a percepção dos entrevistados de que há excessiva dependência das provas testemunhais. Em apenas 48% dos casos a perícia de local foi realizada, em 2% não houve menção a exames periciais, em 7% o único exame mencionado é o necroscópico, e em 18% há apenas exames de materialidade. Foram frequentes as paralizações de inquérito à espera de laudos e raros os casos em que esses laudos foram decisivos para a investigação. 
-
-A Figura 6 ilustra a confirmação do represamento dos casos analisados na quantidade de denunciados e na morosidade judicial:
-
-```{r amostra, fig.cap='Fluxo da impunidade segundo amostra de São Paulo.'}
-knitr::include_graphics("amostra.jpg")
-```
-
--------------------------------------------------------------------------------
+##### Page Break
 
 ### Diagnóstico
 
@@ -176,7 +169,7 @@ Em relação à análise de tempos, foi possível identificar redução sistemá
 
 As capacitações e o desenvolvimento de POPs foram bem avaliados pelos gestores e operadores, indicando que há demanda por políticas indutoras nos estados, mesmo que essas atividades sejam realizadas de forma inconstante. Diante dessa demanda dos estados por mais capacitações e orientações, sugestões viáveis incluem potencializar os momentos de relatoria e prestação de contas para ativar um canal de orientações do grupo gestor federal, assim como intercalar capacitações e reuniões presenciais e à distância.
 
-Com relação aos pontos negativos, o principal foi a dispersão dos trabalhos. A partir de 2014, as reuniões se tornaram mais escassas e a documentação foi insuficiente. A queda do fôlego também pôde ser percebida na análise de volume de audiências, que apresentou esforço inicial brando, mas foi abandonado em menos de um ano. Em uma das entrevistas foi explicitado: “não é institucionalizada a ENASP, é Estratégia [...] depende das pessoas que estão a frente, esse é o grande problema”, reflexão que instiga a considerar, inclusive, se outros instrumentos de formalização poderiam alavancar esta institucionalização. 
+Com relação aos pontos negativos, o principal foi a dispersão dos trabalhos. A partir de 2014, as reuniões se tornaram mais escassas e a documentação foi insuficiente. A queda do fôlego também pôde ser percebida na análise de volume de audiências, que apresentou esforço inicial brando, mas foi abandonado em menos de um ano. Em uma das entrevistas foi explicitado: "não é institucionalizada a ENASP, é Estratégia [...] depende das pessoas que estão a frente, esse é o grande problema", reflexão que instiga a considerar, inclusive, se outros instrumentos de formalização poderiam alavancar esta institucionalização. 
 
 Ficou claro nas entrevistas que o grau de engajamento e liderança exercido por cada uma das instituições, no nível federal e estadual, tem impacto direto na implementação da ENASP. Ter uma equipe gestora federal que divulga periodicamente o andamento, cobra resultados e direciona demandas de forma rápida também se mostrou determinante. Observou-se diferença no engajamento das instituições federais ao longo do tempo, com destaque ao MJ no início e ao CNMP nos últimos anos. Apesar de não ser necessariamente desvantagem, no caso da ENASP ocasionou certa passividade dos demais envolvidos. Para recuperar o engajamento federal integral (e obter seu reflexo nos estados), seria importante retomar as reuniões e prestações de contas com periodicidade fixa e reduzir a rotatividade dos líderes nacionais e estaduais.
 
@@ -186,7 +179,7 @@ Apesar de ter um núcleo comum em torno dos homicídios, a ENASP desenvolveu mui
 
 Um destaque negativo que contrasta com a indução de uma política pública pautada pela gestão de resultados foi a falta de documentação, sistematização e avaliação da ENASP em nível nacional, impedindo uma avaliação mais ampla da iniciativa. É recomendado que a ENASP aprimore não apenas sua documentação interna e a alimentação dos inqueritômetro e processômetro, mas também a publicidade dos resultados para a sociedade de forma ativa e mais acessível, sendo exemplo prático da compreensão de que o fluxo do processamento começa na comunicação da ocorrência pela população e termina apenas com a resposta estatal dada a esta mesma população. Recuperando seu propósito inicial de reduzir a impunidade dos homicídios no Brasil, seria fundamental criar e alimentar uma ferramenta que meça e publique periodicamente a evolução deste indicador. 
 
--------------------------------------------------------------------------------
+##### Page Break
 
 ## Cardápio de soluções
 
